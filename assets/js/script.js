@@ -6,7 +6,7 @@ for (i = 9; i < 18; i++) {
     } else {
         if (i < moment().format("H")) {
             $("#" + i).addClass("past");
-        } else if (i = moment().format("H")) {
+        } else if (i == moment().format("H")) {
             $("#" + i).addClass("present");
         } else {
             $("#" + i).addClass("future");
@@ -15,7 +15,7 @@ for (i = 9; i < 18; i++) {
 }
 
 if (localStorage.getItem("plans") == null) {
-    plans = ["1", "2", "3", "4", "5", "6", "6", "7", "8"];
+    plans = ["", "", "", "", "", "", "", "", ""];
     localStorage.setItem("plans", JSON.stringify(plans));
 } else {
     data = JSON.parse(localStorage.getItem("plans"));
@@ -23,3 +23,9 @@ if (localStorage.getItem("plans") == null) {
         $("#" + k).val(data[j]);
     }
 }
+
+$(".container").on("click", ".saveBtn",function (event){
+    tempPlans = JSON.parse(localStorage.getItem("plans"));
+    tempPlans[$(event.target).data("position")] = $("#" + $(event.target).data("id")).val();
+    localStorage.setItem("plans", JSON.stringify(tempPlans));
+})
