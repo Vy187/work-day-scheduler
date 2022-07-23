@@ -23,6 +23,7 @@ textarea {
 
 .description {
   white-space: pre-wrap;
+  padding-bottom: 45px;
 }
 
 .time-block {
@@ -37,6 +38,8 @@ textarea {
 }
 
 .hour {
+  text-align: right;
+  padding-top: 8px;
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
